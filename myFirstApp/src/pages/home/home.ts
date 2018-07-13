@@ -8,13 +8,13 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios'
 })
 export class HomePage {
 usuarios:any[] = [];
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public provider: UsuariosProvider) {
 
   }
   ionViewDidLoad(){
-  	this.provider.load().then(
-  		(data)=>{this.usuarios =data;}
-  		)
+  	this.provider.load().subscribe(
+  		(data)=>{this.usuarios = data;}
+  	)
   }
 
 }
